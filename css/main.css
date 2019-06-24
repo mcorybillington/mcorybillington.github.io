@@ -50,3 +50,6 @@ ul.posts li {
 .header-column {
   flex: 50%;
 }
+ul {
+list-style-type: none;
+}
