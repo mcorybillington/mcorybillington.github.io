@@ -2,7 +2,7 @@ name: they
 markdown: kramdown
 
 
-theme: jekyll-theme-minimal
+theme: jekyll-theme-midnight
 
 plugins:
   - jekyll-avatar
