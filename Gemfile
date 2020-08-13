@@ -3,10 +3,9 @@
 
 source "https://rubygems.org"
 
-#gemspec
+gemspec
 
 gem "jekyll", ENV["JEKYLL_VERSION"] if ENV["JEKYLL_VERSION"]
 
 gem 'jekyll-avatar'
 
-gem "jekyll-theme-midnight"
