@@ -3,6 +3,7 @@ body {
     width: 70%;
     background-color: #2e2e2e;
     font-family:'Ubuntu';
+    color: whitesmoke;
 }
 nav ul, footer ul {
     padding: 0px;
