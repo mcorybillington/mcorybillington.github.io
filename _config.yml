@@ -1,8 +1,7 @@
-name: they
+name: theyhack.me
 markdown: kramdown
-
-
-theme: jekyll-theme-tactile
-
+relative_links:
+  enabled: true
+  collections: true
 plugins:
   - jekyll-avatar
