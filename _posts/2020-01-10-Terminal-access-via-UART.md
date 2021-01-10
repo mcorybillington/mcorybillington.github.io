@@ -4,7 +4,7 @@ layout: post
 author: M. Cory Billington
 excerpt_separator: <!--more-->
 ---
-## How to get a shell on your router (hopefully)
+## How to get a Shell on your Router (_hopefully_)
 Vulnerability hunting is hard, and it's even harder if you don't have access to the source. Hardware devices make this even tougher as usually the firmware is distributed via binary blobs. You can `binwalk` them and get a `squashfs` usually, but IMO it's still not the same as seeing exactly what's running dynamically on _your_ router. So, lets _hardware_ hack our way in using some built-in functionality :)
 ## Supplies
 You will need:  
@@ -22,10 +22,10 @@ You will need:
 * Multimeter (anything that can measure resistance and voltage will do)
 * [optional] Soldering iron (if you want to solder the jumpers on)
 * [optional] Diagonal cutters/wire cutters/etc.
-## Before we start
+## Before We Start
 The router you see in this how-to is a [tp-link TL-WR841N](https://www.tp-link.com/us/home-networking/wifi-router/tl-wr841n/) but this technique can be used on many different boards. I've also done this successfully on a [NETGEAR R6080](https://www.netgear.com/home/wifi/routers/r6080)  
 I am also using Ubuntu 20.04, but any Linux OS should work, or something like Putty on Windows. 
-## Hardware mods
+## Hardware Mods
 Start by taking your router apart and finding the UART port on the circuit board. It will look like this:  
     <figure class="image">
       <img src="/static/jumpers.jpeg" width="40%"/>
@@ -71,6 +71,7 @@ You'll then want to confirm voltage and set your controller appropriately. Mine 
     <img src="/static/voltage-check.jpeg" width="40%"/>
 </figure>
 
+## Terminal Setup and Consoling In
 Now you are almost ready to boot the router. Connect your controller to your computer and look for the device file. It will probably be:  
 ```/dev/ttyUSB0```  
 which you can find by running:  
@@ -95,4 +96,4 @@ This is fine, just exit using `Ctrl + a` and then `:quit` and try again. When yo
 </figure>
 After running the screen command in the gif above, I power the router on, which is the delay before the log is printed to screen. Also, you will likely not get a shell prompt, and messages will keep displaying to screen even after you have a shell. So, I recommend running something like `ls` to see if you get output. You can also see that this router does not have a lot of commands. Most of the functionality on this machine would come from `/bin/busybox`, which contains more functionality/commands. Sometimes, you may want to copy over a full `busybox` binary that has more built-in commands.
 
-## Happy hacking!
+## Happy Hacking!
