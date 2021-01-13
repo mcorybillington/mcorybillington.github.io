@@ -1,7 +1,6 @@
 ---
 title: Terminal Access on routers via UART
-layout: post 
-author: M. Cory Billington
+layout: posts 
 excerpt_separator: <!--more-->
 ---
 ## How to get a Shell on your Router (_hopefully_)
@@ -12,12 +11,12 @@ You will need:
   [https://www.microcenter.com/product/486570/-ftdi-adapter-usb-controller](https://www.microcenter.com/product/486570/-ftdi-adapter-usb-controller)
     <figure class="image">
       <figcaption>I used this one from Micro Center</figcaption>
-      <img src="/static/ftdi.jpeg" width="40%"/>
+      <img src="/assets/images/ftdi.jpeg" width="40%"/>
     </figure>
 * Jumpers of some sort (most anything conductive will work...)
     <figure class="image">
       <figcaption>I picked up a pack of these at Micro Center</figcaption>
-      <img src="/static/jumpers.jpeg" width="40%"/>
+      <img src="/assets/images/jumpers.jpeg" width="40%"/>
     </figure>
 * Multimeter (anything that can measure resistance and voltage will do)
 * [optional] Soldering iron (if you want to solder the jumpers on)
@@ -28,7 +27,7 @@ I am also using Ubuntu 20.04, but any Linux OS should work, or something like Pu
 ## Hardware Mods
 Start by taking your router apart and finding the UART port on the circuit board. It will look like this:  
     <figure class="image">
-      <img src="/static/jumpers.jpeg" width="40%"/>
+      <img src="/assets/images/jumpers.jpeg" width="40%"/>
     </figure>
 
 Luckily here, the ports are clearly labeled
@@ -46,29 +45,29 @@ Now would be a good time to identify these if they weren't labeled. Ground is pr
 At this point, you are probably ready to start soldering if you want to do that. The process for me looked like this:  
 <figure class="image">
     <figcaption>I used this one from Micro Center</figcaption>
-    <img src="/static/cut-jumper.jpeg" width="40%"/>
+    <img src="/assets/images/cut-jumper.jpeg" width="40%"/>
 </figure>
 <figure class="image">
     <figcaption>I used this one from Micro Center</figcaption>
-    <img src="/static/before-solder.jpeg" width="40%"/>
+    <img src="/assets/images/before-solder.jpeg" width="40%"/>
 </figure>
 <figure class="image">
     <figcaption>I used this one from Micro Center</figcaption>
-    <img src="/static/solder.jpeg" width="40%"/>
+    <img src="/assets/images/solder.jpeg" width="40%"/>
 </figure>
 Repeat for each jumper `TX RX GND`  
 
 Now, you are ready to connect these jumpers to your FTDI controller. Here is a pic of the pinout from my setup:  
 <figure class="image">
     <figcaption>I used this one from Micro Center</figcaption>
-    <img src="/static/pinout.jpeg" width="40%"/>
+    <img src="/assets/images/pinout.jpeg" width="40%"/>
 </figure>
 You can see, these will appear backwards. What is being _transmitted_ (`TX`) from the router will be _received_(`RXD`) on the FTDI controller. If you mix these up, your router will probably just not boot, which is what mine just did when I tested this. In that case, just swap them and try again.
 
 You'll then want to confirm voltage and set your controller appropriately. Mine had a switch for `5v` or `3.3v`, so I set it to `3.3v`. To check, measure voltage at the `VCC` port:  
 <figure class="image">
     <figcaption>3.23v is close enough...</figcaption>
-    <img src="/static/voltage-check.jpeg" width="40%"/>
+    <img src="/assets/images/voltage-check.jpeg" width="40%"/>
 </figure>
 
 ## Terminal Setup and Consoling In
@@ -87,12 +86,12 @@ In this case, the correct baud rate was `115200`, so the command looked like thi
 After running the command, you will then power the router on. It will automatically start transmitting data and you will see output. If you get this incorrect, you'll just get jibberish on the screen like so when you plug the router in.:  
 <figure class="image">
     <figcaption>non-printable garbage from incorrect baud rate</figcaption>
-    <img src="/static/bad-baud.png" width="40%"/>
+    <img src="/assets/images/bad-baud.png" width="40%"/>
 </figure>
 This is fine, just exit using `Ctrl + a` and then `:quit` and try again. When you get the baud rate correct, you will see a boot log output to the screen when you power the router on. It will look like this gif and you will drop into a shell:  
 <figure class="image">
     <figcaption>Successful connection to UART</figcaption>
-    <img src="/static/boot-uart.gif" width="60%"/>
+    <img src="/assets/images/boot-uart.gif" width="60%"/>
 </figure>
 After running the screen command in the gif above, I power the router on, which is the delay before the log is printed to screen. Also, you will likely not get a shell prompt, and messages will keep displaying to screen even after you have a shell. So, I recommend running something like `ls` to see if you get output. You can also see that this router does not have a lot of commands. Most of the functionality on this machine would come from `/bin/busybox`, which contains more functionality/commands. Sometimes, you may want to copy over a full `busybox` binary that has more built-in commands.
 
