@@ -3,6 +3,6 @@ main:
   - title: "Home"
     url: /
   - title: "Research"
-    url: /cve
+    url: /cve/
   - title: "About"
     url: /about/
