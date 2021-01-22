@@ -1,0 +1,61 @@
+---
+layout: null
+permalink: /keybase.txt
+author_profile: false
+---
+==================================================================
+https://keybase.io/th3y
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://theyhack.me
+  * I am th3y (https://keybase.io/th3y) on keybase.
+  * I have a public key ASC2nFUdxkdbrA6Ntrczt6VuKdgB4PUuRQNJhFsQpEbgBQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120b162cb035354af59f484f48b211b1986de67b8b94634d5f8b5c22d904df4ebc30a",
+      "host": "keybase.io",
+      "kid": "0120b69c551dc6475bac0e8db6b733b7a56e29d801e0f52e450349845b10a446e0050a",
+      "uid": "2f39478999f90c31085d57d4469d9819",
+      "username": "th3y"
+    },
+    "merkle_root": {
+      "ctime": 1611355117,
+      "hash": "bc4833299c9df41f977f4120de8ddc2cc5feda9bef68026c2ba25247a2392cecc24d12a86205e536607046795ebdc3122060f55872fee50a06f855ba88b366ff",
+      "hash_meta": "b28676e0d614ab3d7faa834b3eb5489c4023580cb6af69e5f431442c1389b319",
+      "seqno": 18877059
+    },
+    "service": {
+      "entropy": "E8kBO1cx6oEU+PstEoUgV4BY",
+      "hostname": "theyhack.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.2"
+  },
+  "ctime": 1611355134,
+  "expire_in": 504576000,
+  "prev": "25e162bea2d6fe8baa705279f93188b3364ab51143e2f805acdae992cda17aec",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgtpxVHcZHW6wOjba3M7elbinYAeD1LkUDSYRbEKRG4AUKp3BheWxvYWTESpcCDMQgJeFivqLW/ouqcFJ5+TGIszZKtRFD4vgFrNrpks2heuzEIOn0bFILdTlZvGN+2FdIfhBa5wuHhi6WYt+geipSZ9/jAgHCo3NpZ8RApiXGEDWnzaT2t1jHZcC7e6oppw8CN2AEA1J3MkNhX+P1HjroNN8cDbkT56wXBGqcjrh8IzAFoxM59Gx97Pv8DKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJAabt70hAU5+44aFWNzc9BC8lMMUL5PBQ/DCdKPMjhho3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/th3y
+
+==================================================================
