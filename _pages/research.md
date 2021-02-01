@@ -1,5 +1,6 @@
 ---
 layout: single
+title: Research
 permalink: /cve/
 author_profile: true
 ---

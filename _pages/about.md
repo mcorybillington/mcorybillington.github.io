@@ -1,9 +1,10 @@
 ---
 layout: single
+title: About
 permalink: /about/
 author_profile: true
 ---
-## About me
+
 I'm mostly interested in web application security, but dabble in a bit of everything.
 ## Background
 Linux systems administration coupled with some Django/python development work. Did everything from physical server racking/installs to hosting public websites, and all the load balancing/DNS/containerization/dev work in between. I did that for about a year and a half, got OSCP, and a few months later I moved into a penetration testing role.

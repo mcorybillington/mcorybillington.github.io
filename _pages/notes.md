@@ -1,10 +1,10 @@
 ---
 layout: single
+title: Notes
 permalink: /notes/
 author_profile: true
 ---
 
-Random useful snippets/sites/etc
 - [Powershell](#powershell)
   - [One liner to execute base64 encoded assembly](#one-liner-to-execute-base64-encoded-assembly)
   - [Run arbitrary assembly](#run-arbitrary-assembly)
