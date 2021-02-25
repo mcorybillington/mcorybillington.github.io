@@ -1,10 +1,12 @@
 ---
 title: Terminal Access on routers via UART
 layout: posts 
-excerpt_separator: <!--more-->
 ---
 ## How to get a Shell on your Router (_hopefully_)
 Vulnerability hunting is hard, and it's even harder if you don't have access to the source. Hardware devices make this even tougher as usually the firmware is distributed via binary blobs. You can `binwalk` them and get a `squashfs` usually, but IMO it's still not the same as seeing exactly what's running dynamically on _your_ router. So, lets _hardware_ hack our way in using some built-in functionality :)
+## Video
+I did a talk titled [Hardware Hacking: The Easy Way In...](https://www.youtube.com/watch?v=MnyRjA-9WQM) at [The Pwn School Project](https://pwnschool.com/) hosted by [Phillip Wylie](https://twitter.com/PhillipWylie) on 17 FEB 2021 where I do a live demo of this entire process, from soldering to dropping into the root shell.   
+Beginning of live demo @ [29:47](https://www.youtube.com/watch?v=MnyRjA-9WQM&t=1787)
 ## Supplies
 You will need:  
 * An FTDI controller to convert from RS232 to USB  
