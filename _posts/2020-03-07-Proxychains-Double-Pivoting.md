@@ -3,7 +3,7 @@ title: Double Pivoting using SSH and Proxychains4
 layout: posts 
 ---
 ## TL;DR
-Just go to the [Demo](#demo)
+Just go to the [Demo](#demo)  
 Or, just go to the [Demo Round 2](#demo-round-2) for reverse tunneling
 ## Accessing Resources Behind Multiple Resources
 At some point, you may run into a situation where you find a vulnerable machine and it has access to a internal network. Well, how do you access that network? And then, say you find another machine on the internal network and it has access to _another_ network? Or, each of these machines is restricted by a hosted-based firewall? Well, you can definitely do it. Most C2 frameworks have this type of thing built in, but we will be doing it using native `ssh` along with `proxychains4`, which is available on most distributions.
