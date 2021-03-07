@@ -3,7 +3,8 @@ title: Double Pivoting using SSH and Proxychains4
 layout: posts 
 ---
 ## TL;DR
-Just go to the [Demo](#demo)
+Just go to the [Demo](#demo)  
+Or, just go to the [Demo Round 2](#demo-round-2) for reverse tunneling
 ## Accessing Resources Behind Multiple Resources
 At some point, you may run into a situation where you find a vulnerable machine and it has access to a internal network. Well, how do you access that network? And then, say you find another machine on the internal network and it has access to _another_ network? Or, each of these machines is restricted by a hosted-based firewall? Well, you can definitely do it. Most C2 frameworks have this type of thing built in, but we will be doing it using native `ssh` along with `proxychains4`, which is available on most distributions.
 ### The Layout
@@ -12,14 +13,14 @@ This is what my lab environment looks like
     <img src="/assets/images/proxychains-diagram.png" width="60%"/>
 </figure>
 
-I have the following entries in my `/etc/hosts` file
+I have the following entries in the `/etc/hosts` file on all machines.
 
 |  IP  |  Hostname  |  Notes  |
 | :--: | :--------: | :-----: |
-| 192.168.122.125 | attack | My Kali box |
-| 192.168.122.172 | jumpbox1.local | First jump box |
-| 192.168.122.212 | jumpbox2.local | Second jump box |
-| 192.168.122.181 | destbox.local | Final machine |
+| 192.168.122.125 | `attack` | My box |
+| 192.168.122.172 | `jumpbox1.local` | First jump box |
+| 192.168.122.212 | `jumpbox2.local` | Second jump box |
+| 192.168.122.181 | `destbox.local` | Final machine |
 
 You can use your imagination on what `jumpbox1.local`, `jumpbox2.local`, and `destbox.local` are... Webserver, fileserver, privileged workstation, DC. Important thing to know is:
 - `attack` can only talk to `jumpbox1.local`
@@ -115,7 +116,7 @@ And magic happens...
 
 And from here, you'd do the rest as shown before.
 
-## Demo round 2
+## Demo Round 2
 
 <video width="500" height="300" controls>
   <source type="video/mp4" src="/assets/videos/proxychains-reverse.mp4">
