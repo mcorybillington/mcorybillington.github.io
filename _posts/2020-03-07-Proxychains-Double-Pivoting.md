@@ -35,6 +35,7 @@ Thus, we will use the following command to tunnel our SOCKS proxy between two ma
 they@attack.local:~$ ssh -f -N -D 127.0.0.1:8888 user@jumpbox1.local
 ```
 What each flag does:
+
 |  Flag  |  Explanation  |
 | :--: | :--------: |
 | `-f` | This sends the command to background right before executing a command remotely (think `command &`) |
