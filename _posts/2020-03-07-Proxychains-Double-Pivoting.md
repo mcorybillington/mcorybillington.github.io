@@ -55,7 +55,7 @@ tcp_connect_time_out 8000
 localnet 127.0.0.0/255.0.0.0
  
 [ProxyList]
-socks4  127.0.0.1 8888
+socks4  127.0.0.1 8888 # From our machine to jumpbox1.local via this command you ran: they@attack.local:~$ ssh -f -N -D 127.0.0.1:8888 user@jumpbox1.local
 ```
 Once this is in place, you can use the following command to execute commands through the tunnel, and the requests will be performed by `jumpbox1.local`. 
 
@@ -74,7 +74,7 @@ they@jumpbox1.local:~$ ssh -f -N -D 127.0.0.1:9999 user@jumpbox2.local
 ```
 And modify our `new-proxychains.conf` file to include the newly created tunnel/proxy between `jumpbox1.local` and `jumpbox2.local`
 ```
-strict_chain 
+strict_chain # dynamic_chain would work as well
 quiet_mode
 proxy_dns
 remote_dns_subnet 224
@@ -84,9 +84,12 @@ localnet 127.0.0.0/255.0.0.0
  
 [ProxyList]
 socks4  127.0.0.1 8888
-socks4  127.0.0.1 9999
+socks4  127.0.0.1 9999 # From jumpbox1.local to jumpbox2.local via this command you ran: they@jumpbox1.local:~$ ssh -f -N -D 127.0.0.1:9999 user@jumpbox2.local
+
 ```
-Notice the second line is port `9999`? That is because proxychains is first going to proxy through `127.0.0.1:8888` on our box to `jumpbox1.local`, then it is going to proxy through `127.0.0.1:9999` on `jumpbox1.local` to `jumpbox2.local`. Since we have `strict_chain` in our config, if one fails then `proxychains` won't continue. Not applicable here, but you could do `dynamic_chain` and if one failed, it would move on to try the next. In our use case, either `strict_chain` or `dynamic_chain` works fine.  
+Notice the second line is port `9999`? That is because proxychains is first going to proxy through `127.0.0.1:8888` on our box to `jumpbox1.local`, then it is going to proxy through `127.0.0.1:9999` on `jumpbox1.local` to `jumpbox2.local`.  
+
+`proxychains4` is going to try to use each proxy in the order listed. Since we have `strict_chain` in our config, if one fails then `proxychains` won't continue. Not applicable here, but you could do `dynamic_chain` and if one failed, it would move on to try the next. In our use case, either `strict_chain` or `dynamic_chain` works fine.  
 
 Now, try again...
 ```
