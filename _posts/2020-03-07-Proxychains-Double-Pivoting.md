@@ -46,7 +46,7 @@ What each flag does:
 Once we have a SOCKS proxy established, we can then use `proxychains4` to communicate over the newly established tunnel/proxy. I make a local config file to use.
 
 ```
-dynamic_chain 
+strict_chain 
 quiet_mode
 proxy_dns
 remote_dns_subnet 224
@@ -74,7 +74,7 @@ they@jumpbox1.local:~$ ssh -f -N -D 127.0.0.1:9999 user@jumpbox2.local
 ```
 And modify our `new-proxychains.conf` file to include the newly created tunnel/proxy between `jumpbox1.local` and `jumpbox2.local`
 ```
-dynamic_chain 
+strict_chain 
 quiet_mode
 proxy_dns
 remote_dns_subnet 224
@@ -86,6 +86,8 @@ localnet 127.0.0.0/255.0.0.0
 socks4  127.0.0.1 8888
 socks4  127.0.0.1 9999
 ```
+Notice the second line is port `9999`? That is because proxychains is first going to proxy through `127.0.0.1:8888` on our box to `jumpbox1.local`, then it is going to proxy through `127.0.0.1:9999` on `jumpbox1.local` to `jumpbox2.local`. Since we have `strict_chain` in our config, if one fails then `proxychains` won't continue. Not applicable here, but you could do `dynamic_chain` and if one failed, it would move on to try the next. In our use case, either `strict_chain` or `dynamic_chain` works fine.  
+
 Now, try again...
 ```
 they@attack.local:~$ proxychains4 -f ~/new-proxychains.conf curl http://destbox.local
