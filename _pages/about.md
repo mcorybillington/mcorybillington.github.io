@@ -17,4 +17,5 @@ Linux systems administration coupled with some Django/python development work. D
 | :---: | :---------------: | :---: |
 [From Veteran to Penetration Tester](https://www.youtube.com/watch?v=DUdjVuHE8tk) | [Offensive Security Interviews](https://www.offsecinterviews.com/) | [Jon Helmus](https://twitter.com/Moos1e_Moose)
 [Hardware Hacking: The Easy Way In...](https://www.youtube.com/watch?v=MnyRjA-9WQM) | [The Pwn School Project](https://pwnschool.com/) | [Phillip Wylie](https://twitter.com/PhillipWylie)
+[Interview With A Red Teamer - Cory Billington](https://www.youtube.com/watch?v=L1v4CBr_IOw) | [cwinfosec](https://www.youtube.com/channel/UCFSN5ly66Lw_H_R4uX2cF0A) | [cwinfosec](https://twitter.com/cwinfosec)
 
