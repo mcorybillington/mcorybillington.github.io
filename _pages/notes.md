@@ -12,6 +12,7 @@ author_profile: true
   - [Download file](#download-file)
   - [Powershell-friendly base64 from Linux](#powershell-friendly-base64-from-linux)
   - [Base64 encode file](#base64-encode-file)
+  - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
 - [Shells](#shells)
   - [Bash](#bash)
   - [Perl](#perl)
@@ -29,7 +30,7 @@ author_profile: true
     - [Offense](#offense)
     - [Defense](#defense)
   - [Web App](#web-app)
-  - [Buffer Overflow</h2>](#buffer-overflowh2)
+  - [Buffer Overflow](#buffer-overflow)
   - [Wireless](#wireless)
   - [Tools](#tools)
 
@@ -57,6 +58,10 @@ echo -n '<text>' | iconv -f UTF8 -t UTF16LE | base64
 ### Base64 encode file
 ```
 [Convert]::ToBase64String([IO.File]::ReadAllBytes(<file-path>))
+```
+### Create a shortcut lnk one-liner
+```
+$Shortcut = (New-Object -comObject WScript.Shell).CreateShortcut("C:\users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\updater.lnk"); $Shortcut.TargetPath = "C:\users\<user>\AppData\updater2.exe";$Shortcut.Save()
 ```
 ## Shells
 ### Bash
