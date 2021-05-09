@@ -19,3 +19,10 @@ Linux systems administration coupled with some Django/python development work. D
 [Hardware Hacking: The Easy Way In...](https://www.youtube.com/watch?v=MnyRjA-9WQM) | [The Pwn School Project](https://pwnschool.com/) | [Phillip Wylie](https://twitter.com/PhillipWylie)
 [Interview With A Red Teamer - Cory Billington](https://www.youtube.com/watch?v=L1v4CBr_IOw) | [cwinfosec](https://www.youtube.com/channel/UCFSN5ly66Lw_H_R4uX2cF0A) | [cwinfosec](https://twitter.com/cwinfosec)
 
+## Tools
+### SharpFind
+[SharpFind](https://github.com/mcorybillington/SharpFind) is a tool written to provide some of the useful features of the Unix tool `find`, such as writable files, recently modified files, wildcard searching, and it can identify .NET assemblies. Since it is written in .NET, you can use it over C2 in Cobalt Strike with `execute-assembly` or Covenant using `Assembly`.
+### sshspray
+[sshspray](https://github.com/mcorybillington/sshspray) is a multi-threaded python tool that can be used to spray ssh keys or passwords across a large number of hosts. I wrote this application as [hydra](https://en.wikipedia.org/wiki/Hydra_(software)) did not have the capability to provide an SSH key.
+
+
