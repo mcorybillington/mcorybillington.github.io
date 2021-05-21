@@ -32,7 +32,9 @@ if (empty($sugar_config['upload_badext'])) {
     $sugar_config['upload_badext'] = array('php', 'php3', 'php4', 'php5', 'pl', 'cgi', 'py', 'asp', 'cfm', 'js', 'vbs', 'html', 'htm');
 }
 ```
-The key thing to note here is that the user input was never converted to lower-case before being compared to the values in that array. So, if you use something like `.pHp` for the `logger_file_ext` value, you can perform the exact same attack I outlined in [my previous post](/CVE-2020-28320-SuiteCRM-RCE/), or, if you just want the exploit, [EDB-49001](https://www.exploit-db.com/exploits/49001). I know... I can't believe I didn't check for this before. I feel so silly...
+The key thing to note here is that the user input was never converted to lower-case before being compared to the values in that array. So, if you use something like `.pHp` for the `logger_file_ext` value, you can perform the exact same attack I outlined in [my previous post](/CVE-2020-28320-SuiteCRM-RCE/) (or if you just want the exploit, [EDB-49001](https://www.exploit-db.com/exploits/49001)). 
+
+I know... I can't believe I didn't check for this before. I feel so silly...
 
 So anyways, another point goes to testing fixes. Even if they did fix the original issue, maybe you overlooked something super simple and you find another bug!
 
