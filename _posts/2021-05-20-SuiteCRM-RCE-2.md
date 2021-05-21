@@ -42,4 +42,7 @@ So anyways, another point goes to testing fixes. Even if they did fix the origin
 **[06 NOV 2020] :** Issue reported to security@suitecrm.com  
 **[13 NOV 2020] :** Issue verified by SuiteCRM 
 **[28 APR 2021] :** Version 7.11.19 released with fix  
+**[18 MAY 2021] :** Email SuiteCRM to request status of CVE ID  
 **[20 MAY 2021] :** This article published
+**[21 MAY 2021] :** Email SuiteCRM to request status of CVE ID
+**[21 MAY 2021] :** SuiteCRM replies CVE is still pending
