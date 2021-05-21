@@ -1,5 +1,5 @@
 ---
-title: SuiteCRM RCE Extension Bypass 2
+title: SuiteCRM RCE Log File Extension Bypass 2
 layout: posts
 ---
 ### CVE is still pending…
