@@ -5,6 +5,8 @@ layout: posts
 ### CVE is still pending…
 This one will be a bit short, since severity/impact/video/etc is all identical to [my post on the previous SuiteCRM RCE](/CVE-2020-28320-SuiteCRM-RCE/). CVE is still pending...
 
+Metasploit module submitted: [pull request](https://github.com/rapid7/metasploit-framework/pull/15231)
+
 During remediation testing of [CVE-2020-28328](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28328) I dug a bit deeper and found another bypass for file extensions that was so simple, I'm a bit embarrassed I didn't spot it on the first go.
 ## Technical details
 So, once the previous fix was released, I obviously wanted to check out what they did.
@@ -46,3 +48,5 @@ So anyways, another point goes to testing fixes. Even if they did fix the origin
 **[20 MAY 2021] :** This article published
 **[21 MAY 2021] :** Email SuiteCRM to request status of CVE ID
 **[21 MAY 2021] :** SuiteCRM replies CVE is still pending
+**[22 MAY 2021] :** Metasploit module submitted: [pull request](https://github.com/rapid7/metasploit-framework/pull/15231)
+
