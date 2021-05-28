@@ -45,8 +45,7 @@ So anyways, another point goes to testing fixes. Even if they did fix the origin
 **[13 NOV 2020] :** Issue verified by SuiteCRM 
 **[28 APR 2021] :** Version 7.11.19 released with fix  
 **[18 MAY 2021] :** Email SuiteCRM to request status of CVE ID  
-**[20 MAY 2021] :** This article published
-**[21 MAY 2021] :** Email SuiteCRM to request status of CVE ID
-**[21 MAY 2021] :** SuiteCRM replies CVE is still pending
+**[20 MAY 2021] :** This article published  
+**[21 MAY 2021] :** Email SuiteCRM to request status of CVE ID  
+**[21 MAY 2021] :** SuiteCRM replies CVE is still pending  
 **[22 MAY 2021] :** Metasploit module submitted: [pull request](https://github.com/rapid7/metasploit-framework/pull/15231)
-
