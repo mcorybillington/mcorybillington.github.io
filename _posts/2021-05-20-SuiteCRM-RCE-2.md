@@ -11,7 +11,7 @@ During remediation testing of [CVE-2020-28328](https://cve.mitre.org/cgi-bin/cve
 ## Technical details
 So, once the previous fix was released, I obviously wanted to check out what they did.
 
-[The Fix](https://github.com/salesagility/SuiteCRM/commit/1618af16eaa494c4551bac961e5ac8fc3d87ab8c#diff-e9704a2002d127cd455e1eb0507042080bb79d362091e770803ff69a31139d0f), which can be found in my previous post as well.  
+[The Fix for CVE-2020-28328](https://github.com/salesagility/SuiteCRM/commit/1618af16eaa494c4551bac961e5ac8fc3d87ab8c#diff-e9704a2002d127cd455e1eb0507042080bb79d362091e770803ff69a31139d0f), which can be found in my previous post as well.  
 ```
 if ($value === '') {
     $GLOBALS['log']->security("Log file extension can't be blank.");
@@ -38,6 +38,16 @@ The key thing to note here is that the user input was never converted to lower-c
 
 I know... I can't believe I didn't check for this before. I feel so silly...
 
+[The new fix](https://github.com/salesagility/SuiteCRM/blob/9cb957e4f41562eb44f6ce8c982e2a3c169fc951/modules/Configurator/Configurator.php#L103)
+```
+$badext = array_map('strtolower', $this->config['upload_badext']);
+if (in_array(strtolower($trim_value), $badext)) {
+    $GLOBALS['log']->security("Invalid log file extension: trying to use invalid file extension '$value'.");
+    continue;
+}
+```
+So you can see now that they now coonvert all the "bad extensions" from the config to lowercase, as well as the incoming extension.
+
 So anyways, another point goes to testing fixes. Even if they did fix the original issue, maybe you overlooked something super simple and you find another bug!
 
 ## Timeline
@@ -48,4 +58,5 @@ So anyways, another point goes to testing fixes. Even if they did fix the origin
 **[20 MAY 2021] :** This article published  
 **[21 MAY 2021] :** Email SuiteCRM to request status of CVE ID  
 **[21 MAY 2021] :** SuiteCRM replies CVE is still pending  
-**[22 MAY 2021] :** Metasploit module submitted: [pull request](https://github.com/rapid7/metasploit-framework/pull/15231)
+**[22 MAY 2021] :** Metasploit module submitted: [pull request](https://github.com/rapid7/metasploit-framework/pull/15231)  
+**[03 JUN 2021] :** Metasploit module merged into `rapid7:master`: [commit](https://github.com/rapid7/metasploit-framework/commit/8b737c2c609fa72651c65b7705bccd6a988ffa1a)
