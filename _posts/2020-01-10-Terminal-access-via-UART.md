@@ -7,6 +7,8 @@ Vulnerability hunting is hard, and it's even harder if you don't have access to 
 ## Video
 I did a talk titled [Hardware Hacking: The Easy Way In...](https://www.youtube.com/watch?v=MnyRjA-9WQM) at [The Pwn School Project](https://pwnschool.com/) hosted by [Phillip Wylie](https://twitter.com/PhillipWylie) on 17 FEB 2021 where I do a live demo of this entire process, from soldering to dropping into the root shell.   
 Beginning of live demo @ [29:47](https://www.youtube.com/watch?v=MnyRjA-9WQM&t=1787)
+## Inspiration
+I was inspired by [Flashback Team](https://twitter.com/FlashbackPwn): [How We Hacked a TP-Link Router and Took Home $55,000 in Pwn2Own](https://www.youtube.com/watch?v=zjafMP7EgEA).
 ## Supplies
 You will need:  
 * An FTDI controller to convert from RS232 to USB  
