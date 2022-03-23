@@ -1,9 +1,9 @@
 ---
-title: SuiteCRM RCE Log File Extension Bypass 2
+title: CVE-2021-42840 SuiteCRM RCE Log File Extension 2
 layout: posts
 ---
-### CVE is still pending…
-This one will be a bit short, since severity/impact/video/etc is all identical to [my post on the previous SuiteCRM RCE](/CVE-2020-28320-SuiteCRM-RCE/). CVE is still pending...
+### CVE-2021-42840
+This one will be a bit short, since severity/impact/video/etc is all identical to [my post on the previous SuiteCRM RCE](/CVE-2020-28320-SuiteCRM-RCE/). 
 
 Metasploit module: [suitecrm_log_file_rce.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/suitecrm_log_file_rce.rb)
 
