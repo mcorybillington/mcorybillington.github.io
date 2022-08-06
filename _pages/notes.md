@@ -14,6 +14,7 @@ author_profile: true
   - [Base64 encode file](#base64-encode-file)
   - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
   - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
+  - [Get computers in AD without AD cmdlets](#get-computers-in-ad-without-ad-cmdlets)
 - [Shells](#shells)
   - [Upgrade to PTY](#upgrade-to-pty)
   - [Bash](#bash)
