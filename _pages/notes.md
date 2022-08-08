@@ -14,7 +14,7 @@ author_profile: true
   - [Base64 encode file](#base64-encode-file)
   - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
   - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
-  - [Get computers in AD without AD cmdlets](#get-computers-in-ad-without-ad-cmdlets)
+  - [Various AD commands without AD cmdlets](#various-ad-commands-without-ad-cmdlets)
 - [Shells](#shells)
   - [Upgrade to PTY](#upgrade-to-pty)
   - [Bash](#bash)
@@ -71,10 +71,59 @@ author_profile: true
 
 > ```Add-MpPreference -ExclusionPath "C:\users\lolcats\AppData\mysketchdir"```
 
-### Get computers in AD without AD cmdlets
+### SSH as domain user
+
+> ```ssh -l <user>@<domain> <hostname>```
+
+### Various AD commands without AD cmdlets
+
+Get machines
 
 > ```([adsi]"WinNT://$((Get-WMIObject Win32_ComputerSystem).Domain)").Children | Where-Object {$_.schemaclassname -eq 'computer'}```
 
+Domain user properties
+
+> ```([adsisearcher]"(samaccountname=$env:USERNAME)").FindOne().Properties```
+
+```
+givenname
+codepage
+objectcategory
+dscorepropagationdata
+usnchanged
+instancetype
+logoncount
+name
+badpasswordtime
+pwdlastset
+objectclass
+badpwdcount
+samaccounttype
+lastlogontimestamp
+usncreated
+sn
+objectguid
+memberof
+whencreated
+adspath
+useraccountcontrol
+cn
+countrycode
+primarygroupid
+whenchanged
+lastlogon
+distinguishedname
+samaccountname
+objectsid
+lastlogoff
+displayname
+accountexpires
+userprincipalname
+```
+
+Get all groups and members of
+
+> ```([adsisearcher]'(&(objectCategory=group))').FindAll().Properties | % {$m=([ADSI]"LDAP://$($_.distinguishedname)").Member;if($m){write-host "Group: "$_.name;$m}} | % { ([adsisearcher]"(distinguishedname=$_)").FindOne().Properties.samaccountname }```
 
 ## Shells
 ### Upgrade to PTY
