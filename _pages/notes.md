@@ -198,6 +198,7 @@ Bash reverse shell
 #### Windows
 [https://guif.re/windowseop](https://guif.re/windowseop)  
 [https://www.fuzzysecurity.com/tutorials/16.html](https://www.fuzzysecurity.com/tutorials/16.html)
+[Railgun](https://docs.metasploit.com/docs/development/developing-modules/libraries/how-to-use-railgun-for-windows-post-exploitation.html)
 ### Active Directory
 #### Offense
 [https://blog.harmj0y.net/](https://blog.harmj0y.net/)  
@@ -222,3 +223,4 @@ Bash reverse shell
 [https://www.exploit-db.com/](https://www.exploit-db.com/)  
 [https://github.com/zricethezav/gitleaks](https://github.com/zricethezav/gitleaks)  
 [https://crt.sh/](https://crt.sh/)
+
