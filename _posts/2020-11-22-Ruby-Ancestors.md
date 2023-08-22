@@ -46,7 +46,7 @@ somestring.class.ancestors[3].system("cat /etc/passwd");
 ```
 ## PoC
 <figure class="image">
-    <figcaption>I used this one from Micro Center</figcaption>
+    <figcaption>Demo</figcaption>
     <img src="/assets/images/ruby-classes.gif" width="40%"/>
 </figure>
 So, just a fun learning experience for me on how you can access things in unique ways in Ruby!
