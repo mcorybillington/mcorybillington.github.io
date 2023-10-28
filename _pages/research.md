@@ -19,4 +19,4 @@ I also occasionally research or write exploits for vulnerabilities that other re
 
 |  CVE  |  Discovery/Credit  |  Exploit  |
 | :---: | :---------------: | :-------: |
-| [CVE-2020-28328](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28328) | [Github Security](https://securitylab.github.com/research/Ubuntu-gdm3-accountsservice-LPE/) | [exploit](https://gist.github.com/mcorybillington/5f8c531555b80fdaec025111e8f1e940)
+| [CVE-2020-16125](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28328) | [Github Security](https://securitylab.github.com/research/Ubuntu-gdm3-accountsservice-LPE/) | [exploit](https://gist.github.com/mcorybillington/5f8c531555b80fdaec025111e8f1e940)
