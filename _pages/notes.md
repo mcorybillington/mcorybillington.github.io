@@ -57,7 +57,7 @@ author_profile: true
 
 ### Powershell-friendly base64 from Linux
 
-> ```echo -n '<text>' | iconv -f UTF8 -t UTF16LE | base64```
+> ```echo -n '<text>' | iconv -f UTF8 -t UTF16LE | base64 -w0```
 
 ### Base64 encode file
 
