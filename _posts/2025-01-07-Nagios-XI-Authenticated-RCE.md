@@ -267,3 +267,6 @@ I also reported a SQL injection three days later, however it apparently was a du
 |**12DEC2024**| I requested a CVE for this issue via `https://cveform.mitre.org/`|
 |**06JAN2024**| Confirmed with Nagios that public disclosure was in good faith with the elapsed time|
 |**06JAN2024**|Nagios confirms full disclosure is OK| 
+|**07JAN2024**|This article is published. CVE is still pending| 
+
+
