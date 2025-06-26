@@ -15,7 +15,7 @@ author_profile: true
   - [Create a shortcut lnk one-liner](#create-a-shortcut-lnk-one-liner)
   - [Create a Windows Defender exclusion](#create-a-windows-defender-exclusion)
   - [Various AD commands without AD cmdlets](#various-ad-commands-without-ad-cmdlets)
-- [Snippets]
+- [Snippets](#snippets)
   - [XSLT Read Output](#xslt-read-output)
 - [Shells](#shells)
   - [Upgrade to PTY](#upgrade-to-pty)
