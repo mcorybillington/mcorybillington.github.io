@@ -268,5 +268,5 @@ I also reported a SQL injection three days later, however it apparently was a du
 |**06JAN2025**| Confirmed with Nagios that public disclosure was in good faith with the elapsed time|
 |**06JAN2025**|Nagios confirms full disclosure is OK| 
 |**07JAN2025**|This article is published. CVE is still pending| 
-|**28AUG2025**|CVE-2024-13986 issued|
+|**28AUG2025**|CVE-2024-13986 issued via request from [VulnCheck](https://www.vulncheck.com/)|
 
