@@ -1,5 +1,5 @@
 ---
-title: Nagios XI Authenticated Arbitrary File Upload + Path Traversal leads to Remote Code Execution
+title: CVE-2024-13986 - Nagios XI Authenticated Arbitrary File Upload + Path Traversal leads to Remote Code Execution
 layout: posts
 ---
 ## Overview
@@ -265,8 +265,8 @@ I also reported a SQL injection three days later, however it apparently was a du
 |**06DEC2024**|Nagios replies to notify that fixes will be relased and requested two weeks after patching before public disclosure of vulnerabilities 
 |**12DEC2024**|Observed updates released at `https://www.nagios.com/changelog/`|
 |**12DEC2024**| I requested a CVE for this issue via `https://cveform.mitre.org/`|
-|**06JAN2024**| Confirmed with Nagios that public disclosure was in good faith with the elapsed time|
-|**06JAN2024**|Nagios confirms full disclosure is OK| 
-|**07JAN2024**|This article is published. CVE is still pending| 
-
+|**06JAN2025**| Confirmed with Nagios that public disclosure was in good faith with the elapsed time|
+|**06JAN2025**|Nagios confirms full disclosure is OK| 
+|**07JAN2025**|This article is published. CVE is still pending| 
+|**28AUG2025**|CVE-2024-13986 issued|
 
