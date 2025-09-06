@@ -157,7 +157,7 @@ requests.get(<url>, proxies=proxies)
 ### Python Multipart Form Request
 ```
 upload_data = {
-        'parameter1': (None, mibs_nsp),
+        'parameter': (None, <parameter-value>),
         'file': (<file-name>, <file-content>), <content-type>
     }
 upload_req = requests.post(<url>, files=upload_data)
