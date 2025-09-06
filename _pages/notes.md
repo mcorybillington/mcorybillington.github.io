@@ -17,6 +17,8 @@ author_profile: true
   - [Various AD commands without AD cmdlets](#various-ad-commands-without-ad-cmdlets)
 - [Snippets](#snippets)
   - [XSLT Read Output](#xslt-read-output)
+  - [Burp Proxy Oneliner](#burp-proxy-oneliner)
+  - [Python Multipart form request](#python-multipart-form-request)
 - [Shells](#shells)
   - [Upgrade to PTY](#upgrade-to-pty)
   - [Bash](#bash)
@@ -144,6 +146,21 @@ Snippet for use in XSLT injection to read a single line of output from the comma
 <xsl:value-of select="$ts" />
 </xsl:template>
 </xsl:stylesheet>
+```
+### Burp Proxy Oneliner
+
+```
+proxies = dict.fromkeys(['http','https'],'http://127.0.0.1:8080')
+
+requests.get(<url>, proxies=proxies)
+```
+### Python Multipart Form Request
+```
+upload_data = {
+        'parameter1': (None, mibs_nsp),
+        'file': (<file-name>, <file-content>), <content-type>
+    }
+upload_req = requests.post(<url>, files=upload_data)
 ```
 ## Shells
 ### Upgrade to PTY
