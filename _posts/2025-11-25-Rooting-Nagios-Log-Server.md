@@ -402,3 +402,9 @@ Also available here: [root_exploit.txt](/exploits/nagios_log_server_root_nlq_exp
 
 #### All exploits also available in this repository: 
 `https://github.com/mcorybillington/CVE-2025-34322_CVE-2025-34323_Nagios_Log_Server`
+
+### Advisories:
+CVEs requested by VulnCheck
+- `https://www.vulncheck.com/advisories/nagios-log-server-authenticated-command-injection-via-natural-language-queries`
+- `https://www.vulncheck.com/advisories/nagios-log-server-local-privilege-escalation-via-writable-scripts-and-sudo-rules`
+- `https://www.nagios.com/changelog/nagios-log-server/nagios-log-server-2026r1-0-1/`
