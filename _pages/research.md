@@ -5,10 +5,11 @@ permalink: /cve/
 author_profile: true
 ---
 
-I like to look for vulnerabilities in software. Below are some of the things I have found and received recognition for. 
+I enjoy finding novel vulnerabilities in software. Below are some of the things I have found and reported.
 
 |  CVE  | Vendor/Product | Advisory  |  Exploit  |  Coverage  |
 | :---: | :-------: | :---------------: | :-------: | :--------: |
+|[CVE-2026-119742](https://www.cve.org/CVERecord?id=CVE-2026-119742) | [Nagios XI](https://www.nagios.com/products/nagios-xi/) | [Nagios: Changelogs](https://www.nagios.com/security-disclosures/nagios-xi/2026r2/)<br>[Nagios: Security Disclosures](https://www.nagios.com/products/security/)<br>[VulnCheck](https://www.vulncheck.com/advisories/nagios-xi-2026r2-os-command-injection-via-mibs-php) | Coming soon...
 |[CVE-2025-34288](https://www.cve.org/cverecord?id=CVE-2025-34288) | [Nagios XI](https://www.nagios.com/products/nagios-xi/) | [Nagios: Changelogs](https://www.nagios.com/changelog/nagios-xi/2026r1-1/)<br>[Nagios: Security Disclosures](https://www.nagios.com/products/security/)<br>[VulnCheck](https://www.vulncheck.com/advisories/nagios-xi-privilege-escalation-via-writable-php-include-executed-with-sudo) | Coming soon...
 |[CVE-2025-67736](https://www.cve.org/cverecord?id=CVE-2025-67736) | [FreePBX](https://www.freepbx.org/) | [GitHub: Authenticated SQL Injection in FreePBX tts (Text To Speech) module](https://github.com/FreePBX/security-reporting/security/advisories/GHSA-632c-49p9-x7cw) | Coming soon...
 |[CVE-2025-34322](https://www.cve.org/cverecord?id=CVE-2025-34322) | [Nagios Log Server](https://www.nagios.com/products/nagios-log-server/) | [Nagios: Changelogs](https://www.nagios.com/changelog/nagios-log-server/)<br>[Nagios: Security Disclosures](https://www.nagios.com/products/security/#log-server) | [Blog post](/Rooting-Nagios-Log-Server/)<br>[GitHub repo](https://github.com/mcorybillington/CVE-2025-34322_CVE-2025-34323_Nagios_Log_Server)
